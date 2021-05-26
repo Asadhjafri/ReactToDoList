@@ -1,19 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 function ToDoItem(props) {
-  const [crossOut, setCrossOut] = useState(false);
-
-  function handleCrossOut() {
-    setCrossOut((prevValue) => {
-      return !prevValue;
-    });
-  }
-
   return (
-    <div onClick={handleCrossOut}>
-      <li style={{ textDecoration: crossOut ? "line-through" : "none" }}>
-        {props.text}
-      </li>
+    <div
+      onClick={() => {
+        props.onChecked(props.id);
+      }}
+    >
+      <li>{props.text}</li>
     </div>
   );
 }
