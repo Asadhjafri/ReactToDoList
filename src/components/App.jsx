@@ -3,13 +3,7 @@ import ToDoItem from "./ToDoItem";
 import InputArea from "./InputArea";
 
 function App() {
-  const [inputText, setInputText] = useState("");
   const [items, setItems] = useState([]);
-
-  function handleChange(event) {
-    const newValue = event.target.value;
-    setInputText(newValue);
-  }
 
   function addToDoItem() {
     setItems((prevItems) => {
@@ -31,11 +25,7 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <InputArea
-        textChange={handleChange}
-        textInput={inputText}
-        clicked={addToDoItem}
-      />
+      <InputArea clicked={addToDoItem} />
       <div>
         <ul>
           {items.map((todoItem, index) => (
